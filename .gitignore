@@ -1,0 +1,6 @@
+variables.py
+passwords.py
+*.json
+*.csv
+.idea/
+.gitignore.swp
