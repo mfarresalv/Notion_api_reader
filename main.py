@@ -6,7 +6,16 @@ import variables
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def get_data(databaseId,secret_key):
+def get_data(databaseId:str,secret_key:str,export_json:bool=False)->pd.DataFrame:
+    """
+    Reads data from a specified Notion database and returns it as a pandas Dataframe.
+
+    Args:
+    databaseId (str): database id, extracted from notion
+    secret_key: Secret key on Notion account, to grant access
+    export_json: If set true, it will generate a JSON with http response
+
+    """
     api_url = f"https://api.notion.com/v1/databases/{databaseId}/query"
     request_headers = {
         "Authorization": "Bearer {}".format(secret_key),
@@ -16,11 +25,18 @@ def get_data(databaseId,secret_key):
     print(res.status_code)
     data = res.json()
     df = process_data(data)
-    with open('./db.json', 'w', encoding='utf8') as f:
-        json.dump(data, f, ensure_ascii=False)
+    if export_json:
+        with open('./db.json', 'w', encoding='utf8') as f:
+            json.dump(data, f, ensure_ascii=False)
     return df
 
-def process_data(json):
+def process_data(json:str)->pd.DataFrame:
+    """
+    Gets the JSON data from the api response, and transforms it into a dataframe
+
+    Args
+    json: the raw data directly given by Notion API
+    """
     results = json["results"]
     plain_types = ["number","files","multi_select"]
     array_types = ["formula","select"]
@@ -53,12 +69,8 @@ def process_data(json):
     return df
 
 
-    #df = pd.DataFrame(fields)
-    #return df
 
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     token = variables.token
     database_id = variables.database_id
@@ -66,4 +78,4 @@ if __name__ == '__main__':
     df.to_csv("output.csv")
 
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
