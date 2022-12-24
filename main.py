@@ -54,11 +54,12 @@ def process_data(json:str)->pd.DataFrame:
     df["Fecha creación"] = df["Fecha creación"].astype("datetime64[ns]")
     return df
 
-def process_datatypes(json:str,column:str,more_entries=True):
+def process_datatypes(json:str,column:str):
     """
     returns each field and value idividually
 
     """
+    more_entries = True
     name = column
     ctype = json[column]["type"]
     value = json[column][ctype]
