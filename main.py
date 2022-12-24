@@ -39,7 +39,7 @@ def process_data(json:str)->pd.DataFrame:
     """
     results = json["results"]
     plain_types = ["number","files","multi_select"]
-    array_types = ["formula","select"]
+    array_types = ["formula","select","date"]
     list_ = []
 
     for row in results:
@@ -63,7 +63,13 @@ def process_data(json:str)->pd.DataFrame:
                         value = fields[column][type][sub_type]["start"]
                 if type == "select":
                     value = fields[column][type]["name"]
+                if type == "date":
+                    if fields[column][type]:
+                        value = fields[column][type]["start"]
+                    else:
+                        value = None
             entry[name] = value
+            print(name, value)
         list_.append(entry)
     df = pd.DataFrame(list_)
     return df
@@ -75,7 +81,7 @@ if __name__ == '__main__':
     token = variables.token
     database_id = variables.database_id
     df = get_data(database_id,token)
-    df.to_csv("output.csv")
+    df.to_csv("/Users/miquelfarre/Google Drive/Mi unidad/scripts-gsheets/piso_recurrentes.csv")
 
 
 

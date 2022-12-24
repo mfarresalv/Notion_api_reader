@@ -18,6 +18,7 @@ Notion documentation : https://developers.notion.com/docs/authorization
 * Files (not tested)
 * Multi_select (not tested)
 * Select
+* Date (start dates)
 * formula
   * boolean
   * date (only start dates)
