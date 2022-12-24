@@ -1,7 +1,7 @@
 # This is a sample Python script.
 import requests, json
 import pandas as pd
-import variables
+import os
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
@@ -69,19 +69,19 @@ def process_data(json:str)->pd.DataFrame:
                     else:
                         value = None
             entry[name] = value
-            print(name, value)
         list_.append(entry)
     df = pd.DataFrame(list_)
     return df
 
 
-
+def main():
+    token = os.environ.get("TOKEN")
+    database_id = os.environ.get("DBID")
+    df = get_data(database_id, token)
+    df.to_csv("/Users/miquelfarre/Google Drive/Mi unidad/scripts-gsheets/piso_recurrentes.csv")
 
 if __name__ == '__main__':
-    token = variables.token
-    database_id = variables.database_id
-    df = get_data(database_id,token)
-    df.to_csv("/Users/miquelfarre/Google Drive/Mi unidad/scripts-gsheets/piso_recurrentes.csv")
+    main()
 
 
 
