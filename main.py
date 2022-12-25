@@ -46,6 +46,7 @@ def process_data(json:str)->pd.DataFrame:
         for column in fields:
             fname, fvalue = process_datatypes(fields,column)
             entry[fname] = fvalue
+
         list_.append(entry)
     df = pd.DataFrame(list_)
     df["Fecha esperada"]=df["Fecha esperada"].astype("datetime64[ns]")
