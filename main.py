@@ -57,7 +57,13 @@ def process_data(json:str)->pd.DataFrame:
 
 def process_datatypes(json:str,column:str):
     """
-    returns each field and value idividually
+    returns each field and value idividually. Need to pass field by field and row per row.
+    From the JSON extracted from Notion's api need to pass only results.properties for each row (in here is where the data of the fields is stored)
+
+    ARGS
+
+    json: json from Notion's API (results.properties)
+    column: name of column
 
     """
     more_entries = True
@@ -87,6 +93,9 @@ def process_datatypes(json:str,column:str):
     return name, value
 
 def main():
+    """
+    executes the script, no arguments needed
+    """
     token = os.environ.get("TOKEN")
     database_id = os.environ.get("DBID")
     df = get_data(database_id, token)
