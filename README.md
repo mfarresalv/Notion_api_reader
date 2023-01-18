@@ -12,7 +12,7 @@ Need to create the file variables.py and insert `token =secret_xxxxx` and `datab
 check this to find `database_id` : https://developers.notion.com/docs/working-with-databases
 Notion documentation : https://developers.notion.com/docs/authorization
 
-## Compatible fields:
+## Compatible fields
 
 * Number
 * Files (not tested)
