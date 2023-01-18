@@ -1,7 +1,7 @@
 import requests, json
 import pandas as pd
-import os
 import variables as var
+
 
 
 def get_data(databaseId:str,secret_key:str,export_json:bool=False)->pd.DataFrame:
