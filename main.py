@@ -1,9 +1,7 @@
-# This is a sample Python script.
 import requests, json
 import pandas as pd
 import os
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+import variables as var
 
 
 def get_data(databaseId:str,secret_key:str,export_json:bool=False)->pd.DataFrame:
@@ -96,8 +94,8 @@ def main():
     """
     executes the script, no arguments needed
     """
-    token = os.environ.get("TOKEN")
-    database_id = os.environ.get("DBID")
+    token = var.token
+    database_id = var.database_id
     df = get_data(database_id, token)
     df.to_csv("/Users/miquelfarre/Google Drive/Mi unidad/scripts-gsheets/piso_recurrentes.csv")
 

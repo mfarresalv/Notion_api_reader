@@ -4,15 +4,19 @@ This will connect to a Notion database, and download all its rows. So far is onl
 The purpose is to make a automatic process to update a google sheets based on Notion.
 
 ## Auth and config
-Need to create acces key on notion, and grant acces to notion database.
+Need to create access key on notion, and grant access to notion database.
 
+### Inputs
 
-Need to create the file variables.py and insert `token =secret_xxxxx` and `database_id= XXXX`
+Via enviroment variables:
+- `TOKEN`: Notion token
+- `DBID`: Notion database_id
 
 check this to find `database_id` : https://developers.notion.com/docs/working-with-databases
-Notion documentation : https://developers.notion.com/docs/authorization
 
-## Compatible fields:
+Notion API documentation : https://developers.notion.com/docs/authorization
+
+## Compatible fields
 
 * Number
 * Files (not tested)
