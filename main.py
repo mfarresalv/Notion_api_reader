@@ -1,9 +1,6 @@
-# This is a sample Python script.
 import requests, json
 import pandas as pd
 import os
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 
 def get_data(databaseId:str,secret_key:str,export_json:bool=False)->pd.DataFrame:
