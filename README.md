@@ -16,7 +16,7 @@ check this to find `database_id` : https://developers.notion.com/docs/working-wi
 
 Notion API documentation : https://developers.notion.com/docs/authorization
 
-## Compatible fields
+## Compatible Notion fields
 
 * Number
 * Files (not tested)
