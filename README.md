@@ -1,7 +1,6 @@
 # Notion api reader
 
-This will connect to a Notion database, and download all its rows. So far is only downloading as a csv, however, eventually it will upload the csv into google drive or specific google sheets. 
-The purpose is to make a automatic process to update a google sheets based on Notion.
+The file `main.py` connects to a Notion Database (given a Notion auth token and a id of a database), and downloads it into a local file (it coluld be a google drive directory using google drive app). 
 
 ## Auth and config
 Need to create access key on notion, and grant access to notion database.
