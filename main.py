@@ -97,7 +97,7 @@ def main():
     token = var.token
     database_id = var.database_id
     df = get_data(database_id, token)
-    df.to_csv("/Users/miquelfarre/Google Drive/Mi unidad/scripts-gsheets/piso_recurrentes.csv")
+    df.to_csv(var.output_path)
 
 if __name__ == '__main__':
     main()
