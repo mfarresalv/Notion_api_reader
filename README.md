@@ -10,6 +10,7 @@ Need to create access key on notion, and grant access to notion database.
 Via enviroment variables:
 - `TOKEN`: Notion token
 - `DBID`: Notion database_id
+- `OUT_DIR`: Directory path where the outcome csv is stored 
 
 check this to find `database_id` : https://developers.notion.com/docs/working-with-databases
 
