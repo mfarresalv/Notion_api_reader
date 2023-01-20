@@ -14,7 +14,7 @@ Via enviroment variables:
 
 check this to find `database_id` : https://developers.notion.com/docs/working-with-databases
 
-Notion API documentation : https://developers.notion.com/docs/authorization
+Notion API documentation : https://developers.notion.com/docs/authorization (need to create a token and give acces to the notion database that we want to download)
 
 ## Compatible Notion fields
 
