@@ -7,9 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 2023-01-05
 
 ### Added
-- minor code improvements
-- added date type (start date, not periods)
-- Made date compatible with blanks (you can leave date columns in blank)
+- minor code improvements.
+- added date type (start date, not periods).
+- Made date compatible with blanks (you can leave date columns in blank).
 
 ## 2022-12-23
 
