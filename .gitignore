@@ -3,7 +3,6 @@ passwords.py
 *.json
 *.csv
 .idea/
-.gitignore.swp
 docker_commands.sh
 google_drive_key.json
 __pycache__/*
