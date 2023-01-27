@@ -37,10 +37,16 @@ Notion API documentation : https://developers.notion.com/docs/authorization
 
 ## Executing on command line
 Will need to install all dependencies, and then execute the next bash command with all the enviroment variables listed before setled up, here an example
-`TOKEN="secret_xxxxxxxxx" DBID="xxxxxxxxxx" OUT_DIR="xxxxx.csv" GDRIVE_FILE_ID="xxxxxx" python main.py`
+```console
+TOKEN="secret_xxxxxxxxx" DBID="xxxxxxxxxx" OUT_DIR="xxxxx.csv" GDRIVE_FILE_ID="xxxxxx" python main.py
+```
 ## Executing on docker
 
 Need to have docker installed on the machine, after that, Run this bash command to create the image
-`docker build -t notion_api_reader .`
+```console
+docker build -t notion_api_reader .
+```
 Once the image is created, need to run the `docker run` command with all the enviroment variables descripted above
-`docker run -e TOKEN=secret_xxxxxxxx -e DBID=xxxxxxxx -e OUT_DIR=/outputs/piso_recurrentes.csv -e GDRIVE_FILE_ID=xxxxx notion_api_reader`
+```console
+docker run -e TOKEN=secret_xxxxxxxx -e DBID=xxxxxxxx -e OUT_DIR=/outputs/piso_recurrentes.csv -e GDRIVE_FILE_ID=xxxxx notion_api_reader
+```
