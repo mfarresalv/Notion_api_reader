@@ -46,9 +46,13 @@ TOKEN="secret_xxxxxxxxx" DBID="xxxxxxxxxx" OUT_DIR="xxxxx.csv" GDRIVE_FILE_ID="x
 ```
 ## Executing on docker
 
-Need to have docker installed on the machine, after that, Run this bash command to create the image
+Need to have docker installed on the machine, after that, Run this bash command to create the image. 
 ```console
 docker build -t notion_api_reader .
+```
+This can also be done by executing the next:
+```console
+bash docker_image_build.sh
 ```
 Once the image is created, need to run the `docker run` command with all the enviroment variables descripted above
 ```console

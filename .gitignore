@@ -7,3 +7,4 @@ passwords.py
 docker_commands.sh
 google_drive_key.json
 __pycache__/*
+docker_run.sh
