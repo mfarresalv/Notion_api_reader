@@ -1,6 +1,6 @@
 # Notion api reader
 
-The file `main.py` connects to a Notion Database (given a Notion auth token and a id of a database), and downloads it into a local file (directory path of outcome must be given). After downloading the file, the script replaces one existing given csv file in google drive with the downloaded data (note that the script do not create the file. The file need to exist, even if it is in blank)
+This script connects to a Notion Database (given a Notion auth token and a id of a database), and downloads it into a local file (directory path of outcome must be given). After downloading the file, the script replaces one existing given csv file in google drive with the downloaded data (note that the script do not create the file. The file need to exist, even if it is in blank)
 
 ## Auth and config
 Need to create access key on notion, and grant access to notion database. See urls to know how to do it.
