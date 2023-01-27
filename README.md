@@ -7,7 +7,11 @@ Need to create access key on notion, and grant access to notion database. See ur
 
 ### Google auth
 
-Need to create a service account on google cloud console, give acces to that account to the google drive document that we want to replace, and save the json token created in the same repository with this name `google_drive_key.json`
+Need to create a service account on google cloud console, give acces to that account to the google drive document that we want to replace. Create a key related to that service account and save it in the same repository with this name `google_drive_key.json`
+
+Here is the documentation on how to create a service account: https://cloud.google.com/iam/docs/creating-managing-service-accounts?hl=es-419
+
+
 
 ### Inputs
 
