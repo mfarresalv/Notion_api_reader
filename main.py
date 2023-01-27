@@ -1,6 +1,7 @@
 import requests, json
 import pandas as pd
 import variables as var
+import gdrive as gd
 
 
 
@@ -90,6 +91,8 @@ def process_datatypes(json:str,column:str):
             ctype=ntype
     return name, value
 
+
+
 def main():
     """
     executes the script, no arguments needed
@@ -98,6 +101,7 @@ def main():
     database_id = var.database_id
     df = get_data(database_id, token)
     df.to_csv(var.output_path)
+    gd.replace_file_to_drive(var.gd_out_file_id,var.output_path)
 
 if __name__ == '__main__':
     main()
