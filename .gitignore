@@ -4,3 +4,4 @@ passwords.py
 *.csv
 .idea/
 .gitignore.swp
+docker_commands.sh
