@@ -29,11 +29,18 @@ def get_service(api_name, api_version, scopes, key_file_location):
     return service
 
 
-def replace_file_to_drive(file_id_replaced,file_replacement,scope='https://www.googleapis.com/auth/drive',key_file_location="google_drive_key.json"):
+def replace_file_to_drive(file_id_replaced,file_replacement,key_file_location="google_drive_key.json"):
+    '''Replace a given file in google drive, given the google drive file_id and the replacement
+
+    Args:
+        file_id_replaced: the id of the existing file on google drive
+        file_replacement: the path of the file we want to upload 
+        key_file_location: The path to a valid service account JSON key file.
+    '''
     service = get_service(
             api_name='drive',
             api_version='v3',
-            scopes=[scope],
+            scopes=['https://www.googleapis.com/auth/drive'],
             key_file_location=key_file_location)
     service.files().update(
         fileId=file_id_replaced,

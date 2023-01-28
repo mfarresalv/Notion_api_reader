@@ -94,9 +94,6 @@ def process_datatypes(json:str,column:str):
 
 
 def main():
-    """
-    executes the script, no arguments needed
-    """
     token = var.token
     database_id = var.database_id
     df = get_data(database_id, token)
