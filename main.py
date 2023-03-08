@@ -48,10 +48,25 @@ def process_data(json:str)->pd.DataFrame:
 
         list_.append(entry)
     df = pd.DataFrame(list_)
-    df["Fecha esperada"]=df["Fecha esperada"].astype("datetime64[ns]")
+    pd.to_datetime(df["Fecha esperada"], utc=True)
     df["Fecha real"] = df["Fecha real"].astype("datetime64[ns]")
     df["Next due"] = df["Next due"].astype("datetime64[ns]")
     df["Fecha creación"] = df["Fecha creación"].astype("datetime64[ns]")
+    df = df[[
+        "next due frequency",
+        "Ejecutado",
+        "Cantidad",	
+        "Facturas/documentos",	
+        "Frecuencia periodo después creacion",	
+        "Categoria",	
+        "Frecuencia",	
+        "Tags",	
+        "Fecha esperada",	
+        "Periodos después de creación",	
+        "Fecha real",	
+        "Next due",	
+        "Fecha creación",
+        "name"]]
     return df
 
 def process_datatypes(json:str,column:str):

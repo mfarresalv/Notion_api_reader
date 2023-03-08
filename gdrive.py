@@ -4,6 +4,7 @@ from googleapiclient.errors import HttpError
 from google.oauth2 import service_account
 from googleapiclient.http import MediaFileUpload
 import variables as var
+from googleapiclient.errors import HttpError
 
 def get_service(api_name, api_version, scopes, key_file_location):
     """Get a service that communicates to a Google API.
@@ -37,17 +38,17 @@ def replace_file_to_drive(file_id_replaced,file_replacement,key_file_location="g
         file_replacement: the path of the file we want to upload 
         key_file_location: The path to a valid service account JSON key file.
     '''
-    service = get_service(
-            api_name='drive',
-            api_version='v3',
-            scopes=['https://www.googleapis.com/auth/drive'],
-            key_file_location=key_file_location)
-    service.files().update(
-        fileId=file_id_replaced,
-        media_body= file_replacement
-    ).execute()
-    
+    try:
+        service = get_service(
+                api_name='drive',
+                api_version='v3',
+                scopes=['https://www.googleapis.com/auth/drive'],
+                key_file_location=key_file_location)
+                
+        service.files().update(
+            fileId=file_id_replaced,
+            media_body= file_replacement
+        ).execute()
+    except HttpError as error:
+        print(f'An error occurred: {error}')
     pass
-
-if __name__ == '__main__':
-    main()
