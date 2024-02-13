@@ -39,6 +39,7 @@ def replace_file_to_drive(file_id_replaced,file_replacement,key_file_location="g
         key_file_location: The path to a valid service account JSON key file.
     '''
     try:
+        print("Uploading data to drive")
         service = get_service(
                 api_name='drive',
                 api_version='v3',

@@ -2,7 +2,7 @@ import requests, json
 import pandas as pd
 import variables as var
 import gdrive as gd
-
+import progressbar
 
 
 def get_data(databaseId:str,secret_key:str,export_json:bool=False)->pd.DataFrame:
@@ -21,12 +21,13 @@ def get_data(databaseId:str,secret_key:str,export_json:bool=False)->pd.DataFrame
         "Content-Type": "application/json",
         "Notion-Version": "2022-06-28"}
     res = requests.request("POST", api_url, headers=request_headers)
-    print(res.status_code)
+    print("server response code: "+str(res.status_code))
     data = res.json()
     df = process_data(data)
     if export_json:
         with open('./db.json', 'w', encoding='utf8') as f:
             json.dump(data, f, ensure_ascii=False)
+    print("Data extracted from Notion Server")
     return df
 
 def process_data(json:str)->pd.DataFrame:
@@ -38,8 +39,8 @@ def process_data(json:str)->pd.DataFrame:
     """
     results = json["results"]
     list_ = []
-
-    for row in results:
+    print("Processing data")
+    for row in progressbar.progressbar(results):
         fields = row["properties"]
         entry = {}
         for column in fields:
