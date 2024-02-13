@@ -3,6 +3,7 @@ FROM python:3.7
 RUN pip install pandas
 RUN pip install requests
 RUN pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+RUN pip install progressbar2
 
 COPY main.py .
 COPY variables.py .
